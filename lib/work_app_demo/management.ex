@@ -9,18 +9,18 @@ defmodule WorkAppDemo.Management do
   alias WorkAppDemo.Management.Employee
 
 
-  # def create_employee(attrs) do
-  #   case Employee.changeset(%Employee{}, attrs) do
-  #     %{valid?: true} = changeset ->
-  #       employee =
-  #         changeset
-  #         |> Ecto.Changeset.apply_changes()
-  #         |> Map.put(:id, Ecto.UUID.generate())
-  #       {:ok, employee}
-  #     changeset ->
-  #       {:error, changeset}
-  #   end
-  # end
+  def demo_employee(attrs) do
+    case Employee.changeset(%Employee{}, attrs) do
+      %{valid?: true} = changeset ->
+        employee =
+          changeset
+          |> Ecto.Changeset.apply_changes()
+          |> Map.put(:id, Ecto.UUID.generate())
+        {:ok, employee}
+      changeset ->
+        {:error, changeset}
+    end
+  end
 
   @doc """
   Returns the list of employees.
@@ -33,7 +33,14 @@ defmodule WorkAppDemo.Management do
   """
   def list_employees do
     # Repo.all(Employee)
-    []
+    # hold_employee = demo_employee(%{first_name: "test", last_name: "test"})
+    [
+      %WorkAppDemo.Management.Employee{
+        first_name: "Tyler",
+        last_name: "Jacobson",
+        id: 1
+      }
+    ]
     # REPLACE THIS WITH NEW FUNCTION TO LIST EMPLOYEES. THIS IS ATTEMPTING TO ACCESS THE DATABASE THAT DOES NOT EXIST
   end
 
