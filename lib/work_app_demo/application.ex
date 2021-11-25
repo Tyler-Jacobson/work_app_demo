@@ -9,7 +9,7 @@ defmodule WorkAppDemo.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      WorkAppDemo.Repo,
+      # WorkAppDemo.Repo,
       # Start the Telemetry supervisor
       WorkAppDemoWeb.Telemetry,
       # Start the PubSub system
